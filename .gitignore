@@ -1,0 +1,14 @@
+node_modules
+.next
+.next-*
+data
+.env.local
+*.tsbuildinfo
+next-env.d.ts
+.gstack/
+/dist/
+.vinext/
+.cloudflare/
+.dev.vars
+.wrangler/
+data/

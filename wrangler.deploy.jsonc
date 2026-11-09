@@ -1,0 +1,24 @@
+// Deploys the output of `pnpm build` with Wrangler.
+{
+  "name": "hookline",
+  "account_id": "31e10441428ce46909b07b4574ca62f2",
+  "main": ".cloudflare/output/v0/workers/default/bundle/index.js",
+  "base_dir": ".cloudflare/output/v0/workers/default/bundle",
+  "compatibility_date": "2026-11-09",
+  "compatibility_flags": ["nodejs_compat"],
+  "no_bundle": true,
+  "find_additional_modules": true,
+  "rules": [
+    { "type": "ESModule", "globs": ["**/*.js"], "fallthrough": true },
+    { "type": "Text", "globs": ["**/*.json"], "fallthrough": true }
+  ],
+  "assets": {
+    "directory": ".cloudflare/output/v0/workers/default/assets",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "not_found_handling": "none",
+    "run_worker_first": ["/*", "!/_next/static/*", "!/*/_next/static/*"]
+  },
+  "d1_databases": [{ "binding": "DB", "database_name": "hookline", "database_id": "3e964ddb-aedd-49f7-ac71-48fc56c94e14", "migrations_dir": "migrations" }],
+  "observability": { "enabled": true }
+}
